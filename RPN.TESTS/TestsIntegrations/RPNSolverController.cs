@@ -33,7 +33,7 @@ namespace RPN.TESTS.TestsIntegrations
 
             // Assert
             response.EnsureSuccessStatusCode();
-            Assert.AreEqual(expected, responseString);
+            Assert.That(responseString, Is.EqualTo(expected));
         }
 
         [Test]
@@ -49,7 +49,7 @@ namespace RPN.TESTS.TestsIntegrations
             var response = await client.PostAsync($"/RPNSolver/{expression}", requestContent);
 
             // Assert
-            Assert.AreEqual(expectedStatusCode, response.StatusCode);
+            Assert.That(response.StatusCode, Is.EqualTo(expectedStatusCode));
         }
 
         [Test]
@@ -64,7 +64,7 @@ namespace RPN.TESTS.TestsIntegrations
             var response = await client.PostAsync($"/RPNSolver/{expression}", requestContent);
 
             // Assert
-            Assert.AreEqual(expectedStatusCode, response.StatusCode);
+            Assert.That(response.StatusCode, Is.EqualTo(expectedStatusCode));
         }
 
         [OneTimeTearDown]
