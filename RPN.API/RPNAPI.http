@@ -1,0 +1,6 @@
+@RPNAPI_HostAddress = http://localhost:5114
+
+GET {{RPNAPI_HostAddress}}/RPNSolver/
+Accept: application/json
+
+###
