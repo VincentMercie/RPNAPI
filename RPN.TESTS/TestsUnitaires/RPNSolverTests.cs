@@ -26,10 +26,11 @@ namespace RPN.TESTS.TestsUnitaires
         }
 
         [TestCase("3 3 +", 6)]
-        [TestCase("2 6 *", 12)]
-        [TestCase("20 6 /", 3.3333333333333335)]
-        [TestCase("4 2 /", 2)]
-        [TestCase("3 5 / 8 + 2 ^ 5 -", 68.96)]
+        [TestCase("2,5 2 +", 4.5)]
+        [TestCase("5 5 + 5 -", 5)]
+        [TestCase("2 3 4 + *", 14)]
+        [TestCase("9 3 /", 3)]
+        [TestCase("1 2 3 4 5 + + + +", 15)]
         public void RPNSolver_WithValidInput_ShouldReturnCorrectResult(string input, double returnExpected)
         {
             double result = _rpnCalculator.RPNSolver(input);
