@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static RPN.BLL.Services.InputValidatorService;
 
 namespace RPN.BLL.Services
 {
@@ -26,25 +27,27 @@ namespace RPN.BLL.Services
                     double operand2 = stack.Pop();
                     double operand1 = stack.Pop();
                     double result = 0;
+                    char opChar;
 
-                    switch (token)
+                    char.TryParse(token, out opChar);
+                    switch ((Operators)opChar)
                     {
-                        case "+":
+                        case Operators.Addition:
                             result = operand1 + operand2;
                             break;
-                        case "-":
+                        case Operators.Subtraction:
                             result = operand1 - operand2;
                             break;
-                        case "*":
+                        case Operators.Multiplication:
                             result = operand1 * operand2;
                             break;
-                        case "/":
+                        case Operators.Division:
                             if (operand2 != 0)
                                 result = operand1 / operand2;
                             else
                                 throw new DivideByZeroException("Erreur : Division par 0");
                             break;
-                        case "^":
+                        case Operators.Exponentiation:
                             result = Math.Pow(operand1, operand2);
                             break;
                         default:
